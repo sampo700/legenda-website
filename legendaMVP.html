@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Легенда</title>
+    <!-- Ссылка на стили -->
+    <link rel="stylesheet" href="legendaMVP.css">
+    <!-- Если хочешь вставить стили прямо сюда, перенеси содержимое styles.css внутрь <style> -->
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <h1 class="logo">ЛЕГЕНДА</h1>
+        <nav class="nav" role="navigation">
+            <ul>
+                <li><a href="#">Квартал</a></li>
+                <li><a href="#">Инфраструктура</a></li>
+                <li><a href="#">Ипотека</a></li>
+                <li><a href="#" class="cta-button" onclick="openForm()">Отдел продаж</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Модальное окно с формой -->
+    <div id="salesForm" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeForm()">&times;</span>
+            <h2>Заявка на покупку</h2>
+            <form>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <div class="agreement">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">Я согласен на обработку персональных данных</label>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <section class="hero">
+        <h2>ОТКРЫТИЕ ПРОДАЖ В ЖК ЛЕГЕНДА</h2>
+        <p>Легендарный жилой квартал для легендарных личностей</p>
+        <a href="#" class="cta-button" onclick="openForm()">Отдел продаж</a>
+    </section>
+
+    <!-- Сценарии -->
+    <script>
+        // Открытие формы
+        function openForm() {
+            document.getElementById("salesForm").style.display = "block";
+        }
+
+        // Закрытие формы
+        function closeForm() {
+            document.getElementById("salesForm").style.display = "none";
+        }
+
+        // Закрытие при клике вне формы
+        window.onclick = function(event) {
+            var modal = document.getElementById("salesForm");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
